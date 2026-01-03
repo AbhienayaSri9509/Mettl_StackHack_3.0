@@ -734,6 +734,364 @@ const projects = [
     projectStartDate: new Date("2020-10-01"),
     projectEndDate: new Date("2030-09-30"),
     images: ["https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80"]
+  },
+
+  // --- ADDITIONAL PROJECTS TO REACH 50+ ---
+  {
+    name: "Biogas from Agricultural Waste - Pakistan",
+    description: "Converting agricultural waste into clean biogas for rural communities, reducing methane emissions and providing renewable energy. This project improves air quality and creates local employment.",
+    pricePerCredit: 16.75,
+    category: "Agriculture",
+    sdgGoals: [7, 13, 1, 8, 12],
+    location: {
+      country: "Pakistan",
+      region: "Punjab",
+      coordinates: { latitude: 31.5497, longitude: 74.3436 }
+    },
+    verraCertified: false,
+    totalCredits: 320000,
+    availableCredits: 245000,
+    projectStartDate: new Date("2021-05-01"),
+    projectEndDate: new Date("2031-04-30"),
+    images: ["https://images.unsplash.com/photo-1505246294793-199f3c760458?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Sustainable Coffee Production - Guatemala",
+    description: "Supporting smallholder coffee farmers in transitioning to shade-grown, organic coffee production. This agroforestry approach sequesters carbon while protecting biodiversity and improving farmer livelihoods.",
+    pricePerCredit: 21.00,
+    category: "Agriculture",
+    sdgGoals: [2, 13, 15, 1, 8, 12],
+    location: {
+      country: "Guatemala",
+      region: "Antigua",
+      coordinates: { latitude: 14.5586, longitude: -90.7335 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-8525-GTM",
+    totalCredits: 280000,
+    availableCredits: 210000,
+    projectStartDate: new Date("2020-11-01"),
+    projectEndDate: new Date("2030-10-31"),
+    images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Urban Transit System - Portugal",
+    description: "Expanding electric public transportation network across Portuguese cities, reducing car dependency and emissions. This infrastructure project includes electric buses, trams, and charging infrastructure.",
+    pricePerCredit: 26.50,
+    category: "Infrastructure",
+    sdgGoals: [11, 13, 7, 9, 12],
+    location: {
+      country: "Portugal",
+      region: "Lisbon",
+      coordinates: { latitude: 38.7223, longitude: -9.1393 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-9633-PRT",
+    totalCredits: 470000,
+    availableCredits: 350000,
+    projectStartDate: new Date("2021-03-01"),
+    projectEndDate: new Date("2031-02-28"),
+    images: ["https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Green Port Infrastructure - Belgium",
+    description: "Modernizing port facilities with renewable energy, electric cranes, and carbon-neutral operations. This infrastructure project reduces emissions from one of Europe's busiest ports.",
+    pricePerCredit: 30.25,
+    category: "Infrastructure",
+    sdgGoals: [9, 13, 7, 11, 12],
+    location: {
+      country: "Belgium",
+      region: "Antwerp",
+      coordinates: { latitude: 51.2194, longitude: 4.4025 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-7415-BEL",
+    totalCredits: 520000,
+    availableCredits: 390000,
+    projectStartDate: new Date("2020-08-15"),
+    projectEndDate: new Date("2030-08-14"),
+    images: ["https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Lake Restoration Project - Turkey",
+    description: "Comprehensive restoration of degraded lake ecosystems, improving water quality, restoring wetlands, and sequestering carbon. This project protects biodiversity and provides ecosystem services.",
+    pricePerCredit: 19.50,
+    category: "Water Management",
+    sdgGoals: [6, 13, 14, 15, 11],
+    location: {
+      country: "Turkey",
+      region: "Istanbul",
+      coordinates: { latitude: 41.0082, longitude: 28.9784 }
+    },
+    verraCertified: false,
+    totalCredits: 380000,
+    availableCredits: 290000,
+    projectStartDate: new Date("2021-06-01"),
+    projectEndDate: new Date("2031-05-31"),
+    images: ["https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Irrigation Efficiency - Egypt",
+    description: "Modernizing irrigation systems across the Nile Delta to reduce water waste and energy consumption. This project uses smart sensors and precision irrigation to maximize efficiency.",
+    pricePerCredit: 17.25,
+    category: "Water Management",
+    sdgGoals: [6, 12, 13, 2, 9],
+    location: {
+      country: "Egypt",
+      region: "Nile Delta",
+      coordinates: { latitude: 30.0444, longitude: 31.2357 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-4683-EGY",
+    totalCredits: 650000,
+    availableCredits: 500000,
+    projectStartDate: new Date("2020-12-01"),
+    projectEndDate: new Date("2030-11-30"),
+    images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Tidal Energy Farm - Scotland",
+    description: "Harnessing tidal energy from the Pentland Firth to generate clean, predictable renewable energy. This innovative project provides baseload renewable power with minimal environmental impact.",
+    pricePerCredit: 34.00,
+    category: "Renewable Energy",
+    sdgGoals: [7, 13, 14, 9, 11],
+    location: {
+      country: "United Kingdom",
+      region: "Scotland",
+      coordinates: { latitude: 58.5925, longitude: -3.0681 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-8526-GBR",
+    totalCredits: 290000,
+    availableCredits: 195000,
+    projectStartDate: new Date("2022-02-01"),
+    projectEndDate: new Date("2032-01-31"),
+    images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Forest Carbon Program - New Zealand",
+    description: "Protecting native forests and establishing new carbon forests across New Zealand. This project preserves unique biodiversity while creating significant carbon sinks through native tree species.",
+    pricePerCredit: 27.50,
+    category: "Forestry",
+    sdgGoals: [15, 13, 6, 1, 14],
+    location: {
+      country: "New Zealand",
+      region: "North Island",
+      coordinates: { latitude: -41.2865, longitude: 174.7762 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-7416-NZL",
+    totalCredits: 580000,
+    availableCredits: 440000,
+    projectStartDate: new Date("2020-04-01"),
+    projectEndDate: new Date("2040-03-31"),
+    images: ["https://images.unsplash.com/photo-1511497532942-9f382b8136c4?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Biomass Energy from Residues - Poland",
+    description: "Converting agricultural and forestry residues into clean biomass energy, reducing waste and fossil fuel dependence. This project creates circular economy benefits while reducing emissions.",
+    pricePerCredit: 20.75,
+    category: "Renewable Energy",
+    sdgGoals: [7, 13, 12, 9, 8],
+    location: {
+      country: "Poland",
+      region: "Warsaw",
+      coordinates: { latitude: 52.2297, longitude: 21.0122 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-9634-POL",
+    totalCredits: 420000,
+    availableCredits: 315000,
+    projectStartDate: new Date("2021-09-01"),
+    projectEndDate: new Date("2031-08-31"),
+    images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Sustainable Fisheries Management - Iceland",
+    description: "Implementing sustainable fishing practices and marine protected areas to restore fish stocks and sequester blue carbon. This project balances economic needs with ocean conservation.",
+    pricePerCredit: 29.75,
+    category: "Water Management",
+    sdgGoals: [14, 13, 8, 12, 15],
+    location: {
+      country: "Iceland",
+      region: "Reykjavik",
+      coordinates: { latitude: 64.1466, longitude: -21.9426 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-4684-ISL",
+    totalCredits: 340000,
+    availableCredits: 255000,
+    projectStartDate: new Date("2020-07-01"),
+    projectEndDate: new Date("2030-06-30"),
+    images: ["https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Carbon Farming Initiative - Ireland",
+    description: "Promoting carbon farming practices including cover crops, reduced tillage, and agroforestry. This project helps Irish farmers transition to climate-smart agriculture while maintaining productivity.",
+    pricePerCredit: 22.50,
+    category: "Agriculture",
+    sdgGoals: [2, 13, 15, 12, 8],
+    location: {
+      country: "Ireland",
+      region: "Cork",
+      coordinates: { latitude: 51.8985, longitude: -8.4756 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-8527-IRL",
+    totalCredits: 360000,
+    availableCredits: 270000,
+    projectStartDate: new Date("2021-01-15"),
+    projectEndDate: new Date("2031-01-14"),
+    images: ["https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "E-Waste Recycling Program - Switzerland",
+    description: "Comprehensive electronic waste recycling and recovery program, reducing landfill waste and recovering valuable materials. This circular economy project reduces emissions from mining and manufacturing.",
+    pricePerCredit: 31.00,
+    category: "Waste Management",
+    sdgGoals: [12, 13, 9, 11, 8],
+    location: {
+      country: "Switzerland",
+      region: "Zurich",
+      coordinates: { latitude: 47.3769, longitude: 8.5417 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-7417-CHE",
+    totalCredits: 280000,
+    availableCredits: 210000,
+    projectStartDate: new Date("2020-05-01"),
+    projectEndDate: new Date("2030-04-30"),
+    images: ["https://images.unsplash.com/photo-1584467735392-e427493a388f?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Rural Electrification - Tanzania",
+    description: "Bringing solar power to remote rural communities in Tanzania, replacing kerosene lamps and diesel generators. This project improves quality of life while reducing emissions and air pollution.",
+    pricePerCredit: 18.50,
+    category: "Renewable Energy",
+    sdgGoals: [7, 13, 1, 3, 8],
+    location: {
+      country: "Tanzania",
+      region: "Arusha",
+      coordinates: { latitude: -3.3869, longitude: 36.6830 }
+    },
+    verraCertified: false,
+    totalCredits: 450000,
+    availableCredits: 360000,
+    projectStartDate: new Date("2021-08-01"),
+    projectEndDate: new Date("2031-07-31"),
+    images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Mangrove Carbon Project - Myanmar",
+    description: "Protecting and restoring mangrove forests along Myanmar's coastline, sequestering blue carbon and protecting communities from storms. This project creates sustainable livelihoods for coastal communities.",
+    pricePerCredit: 19.00,
+    category: "Forestry",
+    sdgGoals: [13, 14, 15, 1, 6],
+    location: {
+      country: "Myanmar",
+      region: "Ayeyarwady",
+      coordinates: { latitude: 16.8661, longitude: 96.1951 }
+    },
+    verraCertified: false,
+    totalCredits: 510000,
+    availableCredits: 410000,
+    projectStartDate: new Date("2021-03-01"),
+    projectEndDate: new Date("2031-02-28"),
+    images: ["https://images.unsplash.com/photo-1596395819057-36e744d081a2?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Smart Water Management - Qatar",
+    description: "Implementing AI-powered water management systems to optimize water use in agriculture and urban areas. This project reduces water waste and energy consumption in water-scarce regions.",
+    pricePerCredit: 36.50,
+    category: "Water Management",
+    sdgGoals: [6, 12, 13, 9, 11],
+    location: {
+      country: "Qatar",
+      region: "Doha",
+      coordinates: { latitude: 25.2854, longitude: 51.5310 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-9635-QAT",
+    totalCredits: 320000,
+    availableCredits: 240000,
+    projectStartDate: new Date("2021-11-01"),
+    projectEndDate: new Date("2031-10-31"),
+    images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Green Hydrogen Production - Australia",
+    description: "Large-scale green hydrogen production facility powered by renewable energy. This project produces clean fuel for transportation and industry, reducing reliance on fossil fuels.",
+    pricePerCredit: 38.00,
+    category: "Renewable Energy",
+    sdgGoals: [7, 13, 9, 11, 12],
+    location: {
+      country: "Australia",
+      region: "Western Australia",
+      coordinates: { latitude: -31.9505, longitude: 115.8605 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-8528-AUS",
+    totalCredits: 480000,
+    availableCredits: 360000,
+    projectStartDate: new Date("2022-06-01"),
+    projectEndDate: new Date("2032-05-31"),
+    images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Offshore Wind Farm - Denmark",
+    description: "Massive offshore wind farm in the North Sea providing clean energy to millions. This project demonstrates cutting-edge floating wind technology and creates thousands of jobs.",
+    pricePerCredit: 32.50,
+    category: "Renewable Energy",
+    sdgGoals: [7, 13, 8, 9, 14],
+    location: {
+      country: "Denmark",
+      region: "North Sea",
+      coordinates: { latitude: 55.6761, longitude: 12.5683 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-7418-DNK",
+    totalCredits: 720000,
+    availableCredits: 540000,
+    projectStartDate: new Date("2020-03-01"),
+    projectEndDate: new Date("2040-02-29"),
+    images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Urban Farming Initiative - Finland",
+    description: "Vertical farming and urban agriculture projects reducing food miles and emissions. This project brings fresh produce to cities while sequestering carbon through innovative growing methods.",
+    pricePerCredit: 24.75,
+    category: "Agriculture",
+    sdgGoals: [2, 11, 13, 12, 8],
+    location: {
+      country: "Finland",
+      region: "Helsinki",
+      coordinates: { latitude: 60.1699, longitude: 24.9384 }
+    },
+    verraCertified: true,
+    verraProjectId: "VCS-8529-FIN",
+    totalCredits: 310000,
+    availableCredits: 235000,
+    projectStartDate: new Date("2021-07-01"),
+    projectEndDate: new Date("2031-06-30"),
+    images: ["https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80"]
+  },
+  {
+    name: "Seagrass Restoration - Greece",
+    description: "Restoring seagrass meadows in the Mediterranean to sequester blue carbon and restore marine ecosystems. This project protects coastlines and supports marine biodiversity.",
+    pricePerCredit: 20.25,
+    category: "Water Management",
+    sdgGoals: [14, 13, 15, 6, 1],
+    location: {
+      country: "Greece",
+      region: "Aegean Sea",
+      coordinates: { latitude: 37.9838, longitude: 23.7275 }
+    },
+    verraCertified: false,
+    totalCredits: 390000,
+    availableCredits: 300000,
+    projectStartDate: new Date("2021-05-01"),
+    projectEndDate: new Date("2031-04-30"),
+    images: ["https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=80"]
   }
 ];
 

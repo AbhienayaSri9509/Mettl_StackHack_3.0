@@ -3,7 +3,7 @@ import { SDGGrid } from './SDGIcons'
 import { calculateImpactScore, calculateTrustScore } from '../utils/impactScore'
 import { MapPin, TrendingUp, ShieldCheck } from 'lucide-react'
 
-const ProjectCard = ({ project, onCompare, isComparing = false }) => {
+const ProjectCard = ({ project, onCompare, isComparing = false, onCountryClick }) => {
   const categoryColors = {
     'Forestry': 'bg-green-100 text-green-800 border-green-200',
     'Renewable Energy': 'bg-blue-100 text-blue-800 border-blue-200',
@@ -28,7 +28,7 @@ const ProjectCard = ({ project, onCompare, isComparing = false }) => {
     : 'https://images.unsplash.com/photo-1497436072909-60f360e1d4b0?auto=format&fit=crop&w=800&q=80';
 
   return (
-    <div className="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col border border-gray-100 dark:border-gray-700 hover:-translate-y-1">
+    <div className="group bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col border border-gray-100 dark:border-gray-700 hover:-translate-y-1">
       {/* Image Header */}
       <div className="relative h-56 overflow-hidden">
         <div className="absolute inset-0 bg-gray-200 animate-pulse" />
@@ -74,10 +74,24 @@ const ProjectCard = ({ project, onCompare, isComparing = false }) => {
       </div>
 
       <div className="p-5 flex-1 flex flex-col">
-        {/* Location */}
-        <div className="flex items-center text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">
-          <MapPin className="w-3 h-3 mr-1" />
-          {project.location.region}, {project.location.country}
+        {/* Location - Clickable Country */}
+        <div className="flex items-center text-xs font-medium text-gray-500 dark:text-gray-400 mb-2 flex-wrap">
+          <MapPin className="w-3 h-3 mr-1 flex-shrink-0" />
+          <span className="truncate">{project.location.region}, </span>
+          {onCountryClick ? (
+            <button
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                onCountryClick(project.location.country)
+              }}
+              className="text-primary-600 dark:text-primary-400 hover:underline ml-1 font-semibold touch-manipulation active:scale-95"
+            >
+              {project.location.country}
+            </button>
+          ) : (
+            <span className="ml-1">{project.location.country}</span>
+          )}
         </div>
 
         {/* Title */}

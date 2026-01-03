@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { PriceSlider } from './PriceSlider'
+import PriceSlider from './PriceSlider'
 import { SDGGrid } from './SDGIcons'
 import { X } from 'lucide-react'
 
@@ -14,12 +14,13 @@ const CATEGORIES = [
 ]
 
 const COUNTRIES = [
-  'Argentina', 'Australia', 'Bangladesh', 'Brazil', 'Canada', 'Chile', 'China', 
-  'Colombia', 'Costa Rica', 'Ethiopia', 'France', 'Germany', 'India', 'Indonesia', 
-  'Israel', 'Italy', 'Japan', 'Kenya', 'Maldives', 'Mexico', 'Morocco', 'Nepal', 
-  'Netherlands', 'Norway', 'Peru', 'Philippines', 'Saudi Arabia', 'Singapore', 
-  'South Africa', 'South Korea', 'Spain', 'Sweden', 'Thailand', 'United Arab Emirates',
-  'United Kingdom', 'United States', 'Vietnam'
+  'Argentina', 'Australia', 'Bangladesh', 'Belgium', 'Brazil', 'Canada', 'Chile', 'China',
+  'Colombia', 'Costa Rica', 'Denmark', 'Egypt', 'Ethiopia', 'Finland', 'France', 'Germany',
+  'Greece', 'Guatemala', 'India', 'Indonesia', 'Ireland', 'Iceland', 'Israel', 'Italy',
+  'Japan', 'Kenya', 'Maldives', 'Mexico', 'Morocco', 'Myanmar', 'Nepal', 'Netherlands',
+  'New Zealand', 'Norway', 'Pakistan', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar',
+  'Saudi Arabia', 'Singapore', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland',
+  'Tanzania', 'Thailand', 'Turkey', 'United Arab Emirates', 'United Kingdom', 'United States', 'Vietnam'
 ].sort()
 
 const SDG_GOALS = Array.from({ length: 17 }, (_, i) => i + 1)
@@ -48,7 +49,7 @@ const FilterSidebar = ({ filters, onFilterChange, onReset }) => {
       </div>
 
       {/* Filter sidebar */}
-      <div className={`${isOpen ? 'block' : 'hidden'} lg:block bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 mb-6 lg:mb-0 transition-colors duration-300`}>
+      <div className={`${isOpen ? 'block' : 'hidden'} lg:block bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-4 sm:p-6 mb-4 sm:mb-6 lg:mb-0 transition-colors duration-300`}>
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white contents-center">
             Filters
