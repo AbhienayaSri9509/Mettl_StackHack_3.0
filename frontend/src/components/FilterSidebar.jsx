@@ -14,9 +14,12 @@ const CATEGORIES = [
 ]
 
 const COUNTRIES = [
-  'Australia', 'Brazil', 'Canada', 'Chile', 'Costa Rica', 'Ethiopia', 'Germany',
-  'India', 'Indonesia', 'Japan', 'Kenya', 'Morocco', 'Nepal', 'Norway',
-  'Peru', 'Philippines', 'Singapore', 'South Africa', 'Sweden', 'Thailand', 'Vietnam'
+  'Argentina', 'Australia', 'Bangladesh', 'Brazil', 'Canada', 'Chile', 'China', 
+  'Colombia', 'Costa Rica', 'Ethiopia', 'France', 'Germany', 'India', 'Indonesia', 
+  'Israel', 'Italy', 'Japan', 'Kenya', 'Maldives', 'Mexico', 'Morocco', 'Nepal', 
+  'Netherlands', 'Norway', 'Peru', 'Philippines', 'Saudi Arabia', 'Singapore', 
+  'South Africa', 'South Korea', 'Spain', 'Sweden', 'Thailand', 'United Arab Emirates',
+  'United Kingdom', 'United States', 'Vietnam'
 ].sort()
 
 const SDG_GOALS = Array.from({ length: 17 }, (_, i) => i + 1)
