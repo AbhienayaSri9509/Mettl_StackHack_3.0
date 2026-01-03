@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: carbon-credits-mongodb-dev
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data_dev:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: carbon-credits
+    networks:
+      - carbon-network-dev
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: carbon-credits-backend-dev
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - PORT=5000
+      - MONGODB_URI=mongodb://mongodb:27017/carbon-credits
+    depends_on:
+      - mongodb
+    networks:
+      - carbon-network-dev
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    command: npm run dev
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: carbon-credits-frontend-dev
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:5000/api
+    depends_on:
+      - backend
+    networks:
+      - carbon-network-dev
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev
+
+volumes:
+  mongodb_data_dev:
+
+networks:
+  carbon-network-dev:
+    driver: bridge
+

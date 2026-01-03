@@ -1,0 +1,20 @@
+{
+  "name": "carbon-credits-marketplace",
+  "version": "1.0.0",
+  "description": "Online marketplace for carbon credits",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "keywords": ["carbon-credits", "marketplace", "climate"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+
