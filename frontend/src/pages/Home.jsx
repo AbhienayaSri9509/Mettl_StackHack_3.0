@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { getProjects, getStats } from '../services/api'
 import ProjectCard from '../components/ProjectCard'
 import FilterSidebar from '../components/FilterSidebar'
+import CompareProjects from '../components/CompareProjects'
+import EmptyState from '../components/EmptyState'
 
 const Home = () => {
   const [projects, setProjects] = useState([])
@@ -18,6 +20,8 @@ const Home = () => {
   })
   const [pagination, setPagination] = useState({})
   const [stats, setStats] = useState(null)
+  const [compareProjects, setCompareProjects] = useState([])
+  const [showCompare, setShowCompare] = useState(false)
 
   useEffect(() => {
     loadProjects()
@@ -72,6 +76,23 @@ const Home = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  const handleCompare = (project) => {
+    setCompareProjects(prev => {
+      const exists = prev.find(p => p._id === project._id)
+      if (exists) {
+        return prev.filter(p => p._id !== project._id)
+      }
+      if (prev.length >= 3) {
+        return prev.slice(1).concat(project)
+      }
+      return [...prev, project]
+    })
+  }
+
+  const handleRemoveCompare = (projectId) => {
+    setCompareProjects(prev => prev.filter(p => p._id !== projectId))
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Stats Banner */}
@@ -121,19 +142,33 @@ const Home = () => {
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
             </div>
           ) : projects.length === 0 ? (
-            <div className="bg-white rounded-lg shadow-md p-12 text-center">
-              <p className="text-gray-500 text-lg">No projects found matching your filters.</p>
-            </div>
+            <EmptyState onReset={handleReset} />
           ) : (
             <>
               <div className="mb-4 flex items-center justify-between">
                 <h2 className="text-2xl font-bold text-gray-800">
                   Projects ({pagination.totalProjects || 0})
                 </h2>
+                {compareProjects.length > 0 && (
+                  <button
+                    onClick={() => setShowCompare(true)}
+                    className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors flex items-center space-x-2"
+                  >
+                    <span>Compare ({compareProjects.length})</span>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                    </svg>
+                  </button>
+                )}
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {projects.map((project) => (
-                  <ProjectCard key={project._id} project={project} />
+                  <ProjectCard
+                    key={project._id}
+                    project={project}
+                    onCompare={handleCompare}
+                    isComparing={compareProjects.some(p => p._id === project._id)}
+                  />
                 ))}
               </div>
 
@@ -163,6 +198,14 @@ const Home = () => {
           )}
         </div>
       </div>
+
+      {showCompare && compareProjects.length > 0 && (
+        <CompareProjects
+          projects={compareProjects}
+          onRemove={handleRemoveCompare}
+          onClose={() => setShowCompare(false)}
+        />
+      )}
     </div>
   )
 }

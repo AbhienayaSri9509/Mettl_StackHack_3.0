@@ -18,14 +18,14 @@ const ProjectSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Infrastructure', 'Forestry', 'Renewable Energy', 'Agriculture', 'Waste Management', 'Water Management', 'Other'],
+    enum: ['Infrastructure', 'Forestry', 'Renewable Energy', 'Agriculture', 'Waste Management', 'Water Management', 'Blue Carbon', 'Technology', 'Community', 'Other'],
     required: true
   },
   sdgGoals: {
     type: [Number],
     required: true,
     validate: {
-      validator: function(v) {
+      validator: function (v) {
         return v.length > 0 && v.every(goal => goal >= 1 && goal <= 17);
       },
       message: 'SDG goals must be between 1 and 17'
