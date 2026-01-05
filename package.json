@@ -10,11 +10,21 @@
     "build": "cd frontend && npm run build",
     "start": "cd backend && npm start"
   },
-  "keywords": ["carbon-credits", "marketplace", "climate"],
+  "keywords": [
+    "carbon-credits",
+    "marketplace",
+    "climate"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.26",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.562.0",
+    "react-leaflet": "^5.0.0",
+    "recharts": "^3.6.0"
   }
 }
-
