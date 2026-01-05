@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
       sdgGoal,
       search,
       page = 1,
-      limit = 12
+      limit = 100
     } = req.query;
 
     const query = {};

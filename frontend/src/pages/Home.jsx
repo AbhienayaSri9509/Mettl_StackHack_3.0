@@ -50,7 +50,8 @@ const Home = () => {
   const loadProjects = async () => {
     setLoading(true)
     try {
-      const data = await getProjects(filters)
+      // Request more projects initially (100 instead of default 12)
+      const data = await getProjects({ ...filters, limit: 100 })
       setProjects(data.projects || [])
       setPagination(data.pagination || {})
     } catch (error) {
@@ -74,12 +75,17 @@ const Home = () => {
 
   const loadProjectCounts = async () => {
     try {
+      // Get all projects for country counts
       const allProjects = await getProjects({ limit: 1000 })
       const counts = {}
-      allProjects.projects.forEach(project => {
-        const country = project.location.country
-        counts[country] = (counts[country] || 0) + 1
-      })
+      if (allProjects && allProjects.projects) {
+        allProjects.projects.forEach(project => {
+          const country = project.location?.country
+          if (country) {
+            counts[country] = (counts[country] || 0) + 1
+          }
+        })
+      }
       setProjectCounts(counts)
     } catch (error) {
       console.error('Error loading project counts:', error)
