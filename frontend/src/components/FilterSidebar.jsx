@@ -49,7 +49,7 @@ const FilterSidebar = ({ filters, onFilterChange, onReset }) => {
       </div>
 
       {/* Filter sidebar */}
-      <div className={`${isOpen ? 'block' : 'hidden'} lg:block bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-4 sm:p-6 mb-4 sm:mb-6 lg:mb-0 transition-colors duration-300`}>
+      <div className={`${isOpen ? 'block' : 'hidden'} lg:block bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-4 sm:p-6 mb-4 sm:mb-6 lg:mb-0 transition-all duration-300 max-h-[calc(100vh-200px)] lg:max-h-none overflow-y-auto lg:overflow-visible`}>
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white contents-center">
             Filters

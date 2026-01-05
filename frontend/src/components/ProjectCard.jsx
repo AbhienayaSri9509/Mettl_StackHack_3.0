@@ -28,9 +28,9 @@ const ProjectCard = ({ project, onCompare, isComparing = false, onCountryClick }
     : 'https://images.unsplash.com/photo-1497436072909-60f360e1d4b0?auto=format&fit=crop&w=800&q=80';
 
   return (
-    <div className="group bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col border border-gray-100 dark:border-gray-700 hover:-translate-y-1">
+    <div className="group bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-xl active:shadow-md transition-all duration-300 overflow-hidden h-full flex flex-col border border-gray-100 dark:border-gray-700 hover:-translate-y-1 active:translate-y-0 touch-manipulation">
       {/* Image Header */}
-      <div className="relative h-56 overflow-hidden">
+      <div className="relative h-48 sm:h-56 overflow-hidden">
         <div className="absolute inset-0 bg-gray-200 animate-pulse" />
         <img
           src={bgImage}
@@ -113,33 +113,35 @@ const ProjectCard = ({ project, onCompare, isComparing = false, onCountryClick }
         </div>
 
         {/* Footer Actions */}
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100 dark:border-gray-700">
-          <div>
-            <div className="text-xs text-gray-500 dark:text-gray-400">Price per Credit</div>
-            <div className="text-2xl font-bold text-gray-900 dark:text-white flex items-baseline">
+        <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100 dark:border-gray-700 gap-3">
+          <div className="flex-shrink-0">
+            <div className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">Price per Credit</div>
+            <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white flex items-baseline">
               ${project.pricePerCredit.toFixed(2)}
             </div>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-shrink-0">
             {onCompare && (
               <button
                 onClick={(e) => {
                   e.preventDefault();
+                  e.stopPropagation();
                   onCompare(project);
                 }}
-                className={`p-2.5 rounded-lg transition-colors ${isComparing
+                className={`p-2.5 sm:p-3 rounded-lg transition-colors touch-manipulation active:scale-95 ${isComparing
                     ? 'bg-primary-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200 active:bg-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
                   }`}
                 title="Compare Project"
+                aria-label="Compare Project"
               >
-                <TrendingUp className="w-5 h-5" />
+                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             )}
             <Link
               to={`/project/${project._id}`}
-              className="px-5 py-2.5 bg-gray-900 hover:bg-primary-600 text-white font-medium rounded-lg transition-colors text-sm shadow-md hover:shadow-lg dark:bg-primary-600 dark:hover:bg-primary-700"
+              className="px-4 sm:px-5 py-2.5 bg-gray-900 hover:bg-primary-600 active:bg-primary-700 text-white font-medium rounded-lg transition-colors text-sm shadow-md hover:shadow-lg dark:bg-primary-600 dark:hover:bg-primary-700 touch-manipulation active:scale-95 whitespace-nowrap"
             >
               View
             </Link>

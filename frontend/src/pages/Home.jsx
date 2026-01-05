@@ -131,7 +131,7 @@ const Home = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
+    <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4 md:py-6 lg:py-8 min-h-screen">
       {/* Stats Banner */}
       {stats && (
         <div className="bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg shadow-lg p-4 sm:p-6 mb-4 sm:mb-6 md:mb-8 text-white">
@@ -189,14 +189,17 @@ const Home = () => {
             <EmptyState onReset={handleReset} />
           ) : (
             <>
-              <div className="mb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">
-                  {filters.country ? `Projects in ${filters.country}` : 'Projects'} ({pagination.totalProjects || 0})
+              <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-white">
+                  {filters.country ? `Projects in ${filters.country}` : 'All Projects'} 
+                  <span className="text-base sm:text-lg text-gray-500 dark:text-gray-400 font-normal ml-2">
+                    ({pagination.totalProjects || 0})
+                  </span>
                 </h2>
                 {compareProjects.length > 0 && (
                   <button
                     onClick={() => setShowCompare(true)}
-                    className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors flex items-center space-x-2"
+                    className="w-full sm:w-auto px-4 py-2.5 bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-semibold rounded-lg transition-colors flex items-center justify-center space-x-2 touch-manipulation"
                   >
                     <span>Compare ({compareProjects.length})</span>
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -205,7 +208,7 @@ const Home = () => {
                   </button>
                 )}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
                 {projects.map((project) => (
                   <ProjectCard
                     key={project._id}
