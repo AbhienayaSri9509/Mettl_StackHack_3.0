@@ -11,8 +11,10 @@
 
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import Project from './backend/models/Project.js';
-import { projects } from './backend/seed.js';
+
+// Import Project model and seed data
+const Project = (await import('./backend/models/Project.js')).default;
+const { projects } = await import('./backend/seed.js');
 
 dotenv.config({ path: './backend/.env' });
 
