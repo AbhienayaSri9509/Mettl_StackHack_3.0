@@ -25,6 +25,52 @@ if (process.env.NODE_ENV === 'production') {
 // Routes
 app.use('/api/projects', projectRoutes);
 
+// Seed route (for initial database setup)
+// Supports both GET and POST for easy access
+app.get('/api/seed', async (req, res) => {
+  try {
+    const { seedDatabase } = await import('./seed.js');
+    const result = await seedDatabase();
+    
+    res.json({ 
+      success: true,
+      message: `✅ Successfully seeded ${result.count} premium carbon credit projects!`,
+      projectsCount: result.count,
+      timestamp: new Date().toISOString(),
+      note: 'Database is now populated. Refresh your homepage to see all projects.'
+    });
+  } catch (error) {
+    console.error('Seed endpoint error:', error);
+    res.status(500).json({ 
+      success: false,
+      message: '❌ Error seeding database',
+      error: error.message 
+    });
+  }
+});
+
+app.post('/api/seed', async (req, res) => {
+  try {
+    const { seedDatabase } = await import('./seed.js');
+    const result = await seedDatabase();
+    
+    res.json({ 
+      success: true,
+      message: `✅ Successfully seeded ${result.count} premium carbon credit projects!`,
+      projectsCount: result.count,
+      timestamp: new Date().toISOString(),
+      note: 'Database is now populated. Refresh your homepage to see all projects.'
+    });
+  } catch (error) {
+    console.error('Seed endpoint error:', error);
+    res.status(500).json({ 
+      success: false,
+      message: '❌ Error seeding database',
+      error: error.message 
+    });
+  }
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Carbon Credits Marketplace API is running' });

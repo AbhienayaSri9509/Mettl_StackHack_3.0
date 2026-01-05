@@ -1097,8 +1097,11 @@ const projects = [
 
 const seedDatabase = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/carbon-credits');
-    console.log('Connected to MongoDB');
+    // Check if already connected
+    if (mongoose.connection.readyState === 0) {
+      await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/carbon-credits');
+      console.log('Connected to MongoDB');
+    }
 
     // Clear existing projects
     await Project.deleteMany({});
@@ -1106,13 +1109,28 @@ const seedDatabase = async () => {
 
     // Insert seed data
     await Project.insertMany(projects);
-    console.log(`Successfully seeded ${projects.length} premium projects with images`);
+    console.log(`✅ Successfully seeded ${projects.length} premium projects with images`);
+    console.log(`🌍 Countries: ${[...new Set(projects.map(p => p.location.country))].length} unique countries`);
+    console.log(`📊 Categories: ${[...new Set(projects.map(p => p.category))].join(', ')}`);
 
-    process.exit(0);
+    // Don't exit if called from API endpoint
+    if (process.argv.includes('--standalone')) {
+      process.exit(0);
+    }
+    
+    return { success: true, count: projects.length };
   } catch (error) {
     console.error('Error seeding database:', error);
-    process.exit(1);
+    if (process.argv.includes('--standalone')) {
+      process.exit(1);
+    }
+    throw error;
   }
 };
 
-seedDatabase();
+// Only run if called directly (not imported)
+if (import.meta.url === `file://${process.argv[1]}` || process.argv.includes('--standalone')) {
+  seedDatabase();
+}
+
+export { seedDatabase, projects };
