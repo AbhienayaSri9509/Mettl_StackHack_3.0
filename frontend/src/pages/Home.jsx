@@ -220,7 +220,7 @@ const Home = () => {
               <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
                 {projects.map((project) => (
                   <ProjectCard
-                    key={project._id}
+                    key={project._id || project.name}
                     project={project}
                     onCompare={handleCompare}
                     isComparing={compareProjects.some(p => p._id === project._id)}
@@ -229,23 +229,38 @@ const Home = () => {
                 ))}
               </div>
 
-              {/* Pagination */}
-              {pagination.totalPages > 1 && (
+              {/* Show message and Load More if there are more projects */}
+              {pagination.hasMore && (
+                <div className="mt-8 text-center">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                    Showing {projects.length} of {pagination.totalProjects || projects.length} projects
+                  </p>
+                  <button
+                    onClick={() => handlePageChange(filters.page + 1)}
+                    className="px-6 py-3 bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-semibold rounded-lg transition-colors touch-manipulation w-full sm:w-auto"
+                  >
+                    Load More Projects
+                  </button>
+                </div>
+              )}
+
+              {/* Traditional Pagination (if not using Load More) */}
+              {!pagination.hasMore && pagination.totalPages > 1 && (
                 <div className="mt-8 flex justify-center items-center space-x-2">
                   <button
                     onClick={() => handlePageChange(filters.page - 1)}
                     disabled={filters.page === 1}
-                    className="px-4 py-2 border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                    className="px-4 py-2 border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
                   >
                     Previous
                   </button>
-                  <span className="px-4 py-2 text-gray-700">
+                  <span className="px-4 py-2 text-gray-700 dark:text-gray-300">
                     Page {pagination.currentPage} of {pagination.totalPages}
                   </span>
                   <button
                     onClick={() => handlePageChange(filters.page + 1)}
                     disabled={!pagination.hasMore}
-                    className="px-4 py-2 border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                    className="px-4 py-2 border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
                   >
                     Next
                   </button>
