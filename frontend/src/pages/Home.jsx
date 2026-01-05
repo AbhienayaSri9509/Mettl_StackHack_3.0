@@ -51,10 +51,13 @@ const Home = () => {
     setLoading(true)
     try {
       const data = await getProjects(filters)
-      setProjects(data.projects)
-      setPagination(data.pagination)
+      setProjects(data.projects || [])
+      setPagination(data.pagination || {})
     } catch (error) {
       console.error('Error loading projects:', error)
+      // Set empty array on error to show empty state
+      setProjects([])
+      setPagination({})
     } finally {
       setLoading(false)
     }
